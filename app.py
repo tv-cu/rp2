@@ -19,7 +19,7 @@ def index():
 
 
 @app.route("/", methods=["POST"])
-def index():
+def result():
     start = request.form["start"]
     end = request.form["end"]
 
