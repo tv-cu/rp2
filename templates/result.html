@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты прогноза</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Прогноз погоды для маршрута</h1>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2 class="h5 mb-0">{{ start }}</h2>
+        </div>
+        <div class="card-body">
+            <p>Температура: <strong>{{ start_weather.temperature }} °C</strong></p>
+            <p>Скорость ветра: <strong>{{ start_weather.wind_speed }} км/ч</strong></p>
+            <p>Вероятность осадков: <strong>{{ start_weather.precipitation_probability }}%</strong></p>
+            <div role="alert"
+                    {% if start_conditions == "Погодные условия благоприятные" %} class="alert alert-success"
+                    {% else %} class="alert alert-warning"
+                    {% endif %}>
+                {{ start_conditions }}
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2 class="h5 mb-0">{{ end }}</h2>
+        </div>
+        <div class="card-body">
+            <p>Температура: <strong>{{ end_weather.temperature }} °C</strong></p>
+            <p>Скорость ветра: <strong>{{ end_weather.wind_speed }} км/ч</strong></p>
+            <p>Вероятность осадков: <strong>{{ end_weather.precipitation_probability }}%</strong></p>
+            <div role="alert"
+                    {% if end_conditions == "Погодные условия благоприятные" %} class="alert alert-success"
+                    {% else %} class="alert alert-warning"
+                    {% endif %}>
+                {{ end_conditions }}
+            </div>
+        </div>
+    </div>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Назад</a>
+</div>
+</body>
+</html>
