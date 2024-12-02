@@ -36,7 +36,7 @@ class AccuWeatherAPI:
     def get_weather(self,
                     location_key: str) -> dict:
         """
-        Получение прогноза погоды в текущем городе
+        Получение прогноза погоды в указанной локации по внутреннему коду AccuWeather
         """
         url = f"{BASE_URL}/forecasts/v1/hourly/1hour/{location_key}"
 
